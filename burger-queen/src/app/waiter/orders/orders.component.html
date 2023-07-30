@@ -1,172 +1,120 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title> waiter </title>
- </head>
+  <meta charset="utf-8">
+  <title> waiter </title>
+</head>
+
 <body>
-        
-      <h2 id="client">Cliente</h2>
-      <input class="inclient" type="text">
-      
-      <h2 id="nmesa">N° de mesa</h2>
-      <input class="intable" type="text">
-
- <!--Tabla de menú de desayuno-->
-   <th>
-   <button class="menu" for="menu"> Desayunos</button>
-    </th>
-      <table>
-        <tr>
-  <th>ITEM</th>
-  <th>PRECIO</th>
-   <th>CANTIDAD</th>
-        </tr>
-        <tr>
-          <td>Café americano</td>
-          <td>5</td>
-          <td>
-            <button class="buttonquantity">-</button>
-            <input  class= "quantity" type="text" value="1" readonly>
-            <button class="buttonquantity">+</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Café con leche</td>
-          <td>7</td>
-          <td>
-            <button class="buttonquantity">-</button>
-            <input class= "quantity" type="text" value="1" readonly>
-            <button class="buttonquantity">+</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Sandwich de jamón y queso</td>
-          <td>10</td>
-          <td>
-            <button class="buttonquantity">-</button>
-            <input class= "quantity" type="text" value="1" readonly>
-            <button class="buttonquantity">+</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Jugo de frutas natural</td>
-          <td>7</td>
-          <td>
-            <button class="buttonquantity">-</button>
-            <input class= "quantity" type="text" value="1" readonly>
-            <button class="buttonquantity">+</button>
-          </td>
-        </tr>
-      </table>
-
-<!--Tabla de menú del día-->
-<th>
-  <button class="menu" for="menu"> Del día</button>
-  </th>
-<table>
-      <tr>
-      <th>ITEM</th>
-      <th>DESCRIPCIÓN</th>
-      <th>PRECIO</th>
-      <th>CANTIDAD</th>
-    </tr>
-    <tr>
-      <td rowspan="2">Hamburguesas</td>
-      <td>Hamburguesa simple</td>
-      <td>10</td>
-      <td>
-        <button class="buttonquantity">-</button>
-        <input class= "quantity" type="text" value="0" readonly>
-        <button class="buttonquantity">+</button>
-      </td>
-    </tr>
-    <tr>
-      <td>Hamburguesa doble</td>
-      <td>15</td>
-      <td>
-        <button class="buttonquantity">-</button>
-        <input  class= "quantity" type="text" value="0" readonly>
-        <button class="buttonquantity">+</button>
-      </td>
-    </tr>
-    <tr>
-      <td rowspan="2">Acompañamientos</td>
-      <td>Papas fritas</td>
-      <td>5</td>
-      <td>
-        <button class="buttonquantity">-</button>
-        <input class= "quantity" type="text" value="0" readonly>
-        <button class="buttonquantity">+</button>
-      </td>
-    </tr>
-    <tr>
-      <td>Aros de cebolla</td>
-      <td>5</td>
-      <td>
-        <button class="buttonquantity">-</button>
-        <input class= "quantity" type="text" value="0" readonly>
-        <button class="buttonquantity">+</button>
-      </td>
-    </tr>
-    <tr>
-      <td rowspan="4">Para tomar</td>
-      <td>Agua 500ml</td>
-      <td>5</td>
-      <td>
-        <button class="buttonquantity">-</button>
-        <input class= "quantity" type="text" value="0" readonly>
-        <button class="buttonquantity">+</button>
-      </td>
-    </tr>
-    <tr>
-      <td>Agua 750ml</td>
-      <td>7</td>
-      <td>
-        <button class="buttonquantity">-</button>
-        <input class= "quantity" type="text" value="0" readonly>
-        <button class="buttonquantity">+</button>
-      </td>
-    </tr>
-    <tr>
-      <td>Bebida/gaseosa 500ml</td>
-      <td>7</td>
-      <td>
-        <button class="buttonquantity">-</button>
-        <input class= "quantity" type="text" value="0" readonly>
-        <button class="buttonquantity">+</button>
-      </td>
-    </tr>
-    <tr>
-      <td>Bebida/gaseosa 750ml</td>
-      <td>10</td>
-      <td>
-        <button class="buttonquantity">-</button>
-        <input class= "quantity" type="text" value="0" readonly>
-        <button class="buttonquantity">+</button>
-      </td>
-    </tr>
-  </table>
   
-  <button id="detallePedido">DETALLE DE PEDIDO</button>
+  <form [formGroup]="ordersForm" (ngSubmit)="loadOrder()">
+    <div class="divContainer takeOrder ">
+    
+      <div class="inputContain">
 
-  <!-- Modal de confirmación del pedido -->
-<div id="modalinpt" class="modal">
-    <div class="modal-content">
-      <h2 class="acceptorder">Confirmación de Pedido</h2>
-      <label class="nameclient">Nombre cliente:</label>
-      <input type="text" id="nombreCliente" required>
-      <br>
-      <label class="numtable" >N° Mesa:</label>
-      <input type="text" id="numeroMesa" required>
-      <br>
-      <table>
-        <!-- Contenido de la tabla -->
-      </table>
-      <p id="total"></p>
-      <button id="enviarBtn">ENVIAR</button>
-      <button id="cancelarBtn">CANCELAR</button>
+        <section>
+          <label id="client">Cliente</label>
+          <input class="inclient" type="text" formControlName="nameClient">
+        </section>
+        <section>
+          <label id="table">N° de mesa</label>
+          <input class="intable" type="number" formControlName="numberTable">
+        </section>
+      </div>
+
+      <!--Tabla de menú de desayuno-->
+      <section class="buttonContainer">
+        <button [ngClass]="{ 'active': breakFastActive }" (click)="filterProducts('Desayuno'); activeBreakFast()"
+          class="buttonMenu" type="button">Desayunos</button>
+        <!--Tabla de menú del día-->
+        <button [ngClass]="{ 'active': lunchActive }" (click)="filterProducts('Almuerzo'); activeLunch()"
+          class="buttonMenu" for="menu" type="button"> Del día</button>
+
+      </section>
+
+      <section class="orderContain">
+        <table class="tableOrder">
+          <tr>
+            <th>ITEM</th>
+            <th>PRECIO</th>
+            <th>CANTIDAD</th>
+          </tr>
+          <ng-container *ngFor="let product of filteredProducts; index as i;">
+            <tr>
+              <td>{{ product.product.name }}</td>
+              <td>{{ product.product.price }}</td>
+              <td>
+                <app-buttons [quantityProduct]="product.qty"
+                  (clickButtonEvent)="updateQuantity({eventValue: $event , product:product })"></app-buttons>
+
+              </td>
+            </tr>
+          </ng-container>
+
+        </table>
+      </section>
+
+
     </div>
-  </div>
+    <!-- div de resumen del pedido -->
+    <div id="modalinpt" class=" divContainer modalContainer">
+      <div class="modal-content">
+        <h1 class="acceptOrder">Confirmación de Pedido</h1>
+        <section class="clientData">
+          <h2 class="nameClient">Nombre cliente:</h2>
+          <span type="text" id="nombreCliente">{{this.nameClient.value}}</span>
+        </section>
+        <br>
+        <section class="clientData">
+          <h2 class="numTable">N° Mesa:</h2>
+          <span type="text" id="nombreCliente">{{this.numberTable.value}}</span>
+        </section>
+        <br>
+        <section class="modalTable" *ngIf="order?.products && order.products.length > 0">
+          <table class="tableModal">
+            <tr>
+              <th>ITEM</th>
+              <th>PRECIO</th>
+              <th>U</th>
+              <th>S/TOTAL</th>
+            </tr>
+
+            <tr *ngFor="let product of order?.products">
+              <td>
+                {{product.product.name}}
+              </td>
+
+              <td>
+                {{product.product.price}}
+              </td>
+
+              <td>
+                {{product.qty}}
+              </td>
+              <td>
+                {{product.qty*product.product.price}}
+              </td>
+            </tr>
+          </table>
+
+        </section>
+        <section class="total">
+          <h3>Total</h3>
+          <h3>${{order.priceTotal}}</h3>
+        </section>
+        <section class="buttonModal">
+          <button class="buttonOrder" type="submit" [disabled]="ordersForm.invalid || cart.length === 0">ENVIAR</button>
+
+          <button class="buttonOrder buttonCancel" type="button" (click)="resetOrder()">CANCELAR</button>
+        </section>
+
+      </div>
+    </div>
+
+
+  </form>
 </body>
+ 
+
 </html>
