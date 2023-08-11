@@ -1,0 +1,32 @@
+<section>
+    <ng-container *ngFor=" let order of orderFiltered()">
+
+        <div class="order">
+
+
+            <div class="details">
+                <p><b> Numero de mesa: </b>   {{order.numberTable}}</p>
+                <p><b>Cliente:</b>   {{order.client}} </p>
+                <p><b>Estado de pedido:</b>   {{order.status}}</p>
+                <p><b>Hora de envío :</b>   {{order.dataEntry}}</p>
+            </div>
+            <div class="table">
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    <tr *ngFor=" let product of order.products">
+                        <td>{{product.product.name}}</td>
+                        <td>{{product.qty}}</td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <button *ngIf="order.concluded===false && order.status==='delivered'"
+                (click)="finishOrder(order)">Terminar</button>
+
+        </div>
+    </ng-container>
+</section>

@@ -1,4 +1,11 @@
-<div>
-  <app-cart-order [statusFilter]="'delivered'"></app-cart-order>
+<section>
+  <div class="button">
+    <button (click)="showDeliveredOrders()">Pedidos enviados</button>
+    <button (click)="showFinishedOrders()">Pedidos Terminados</button>
+  </div>
 
-</div>
+  <div class="containOrder">
+    <app-cart-order-ready *ngIf="deliveredOrder" [concluded]="false"></app-cart-order-ready>
+    <app-cart-order-ready *ngIf="finishedOrder" [concluded]="true"></app-cart-order-ready>
+  </div>
+</section>

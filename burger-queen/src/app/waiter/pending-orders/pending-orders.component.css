@@ -1,0 +1,36 @@
+section {
+
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 1fr;
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+div {
+    width: 100%;
+
+}
+
+.button {
+    width: 100%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+
+}
+
+.button button {
+    border-radius: 15px 15px 0px 0px;
+    font-size: 20px;
+    background-color: black;
+    font-size: 25px;
+    padding: 2%;
+    color: rgb(215, 214, 214);
+    padding: 4%;
+}
+
+/* .containOrder{
+  outline: 10px solid blue;
+} */

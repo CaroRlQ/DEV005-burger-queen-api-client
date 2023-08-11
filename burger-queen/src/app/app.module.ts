@@ -14,7 +14,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { ToastrModule, ToastrConfig} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdersService } from './services/orders.service';
-import { CartOrderComponent } from './cart-order/cart-order.component';
+ 
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { CartOrderComponent } from './cart-order/cart-order.component';
     WaiterComponent,
     CheffComponent,
     PageNotFoundComponent,
+
  
  
 

@@ -39,9 +39,9 @@ export class OrdersService {
   }
 
   // Modificar una orden
-  patchOrder(id: number, status: string, dateProcessed: Date): Observable<OrderI> {
+  patchOrder(id?: number, status?: string, dateProcessed?: Date, concluded?:boolean ): Observable<OrderI> {
     const url = `${this.apiurl}/${id}`;
-    const body = { status: status, dateProcessed: dateProcessed };
+    const body = { status: status, dateProcessed: dateProcessed, concluded:concluded };
     return this.http.patch<OrderI>(url, body, this.httpOptions);
   }
 

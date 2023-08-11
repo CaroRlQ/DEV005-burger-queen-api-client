@@ -28,18 +28,18 @@ export class CartOrderComponent implements OnInit {
 
   getOrders(): void {
     this.orderService.getOrdersByStatus(this.statusFilter).subscribe((result: OrderI[]) => {
-      this.orders = result.map(o => ( 
+      this.orders = result.map(o => (
         {
-        ...o,
-        totalTime: this.orderService.calculateDuration(o.dataEntry, o.dateProcessed)
-      }
+          ...o,
+          totalTime: this.orderService.calculateDuration(o.dataEntry, o.dateProcessed)
+        }
       ));
     });
   }
- // Método para cambiar status de orden e ingresar valor a dataProcessed
-  sendOrder(id: number, order:OrderI) {
-    order.dateProcessed = new Date ();
-    this.orderService.patchOrder(id, 'delivered', order.dateProcessed ).subscribe(
+  // Método para cambiar status de orden e ingresar valor a dataProcessed
+  sendOrder(id: number, order: OrderI) {
+    order.dateProcessed = new Date();
+    this.orderService.patchOrder(id, 'delivered', order.dateProcessed).subscribe(
       (order) => {
         const index = this.orders.findIndex((order) => order.id === id);
         this.orders.splice(index, 1)
@@ -49,7 +49,7 @@ export class CartOrderComponent implements OnInit {
       }
     );
   }
- // Método para filtrar productos de acuerdo a estatus
+  // Método para filtrar productos de acuerdo a estatus
   getFilteredOrders(): OrderI[] {
     if (this.statusFilter) {
       return this.orders.filter(order => order.status === this.statusFilter)
@@ -57,7 +57,7 @@ export class CartOrderComponent implements OnInit {
       return this.orders;
     }
   }
-  
+
 }
 
- 
+
