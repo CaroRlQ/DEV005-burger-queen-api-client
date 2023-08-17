@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { OrderI } from '../interfaces/order.interface';
 import { AuthService } from '../services/auth.service';
 import { OrdersService } from '../services/orders.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-cart-order',
   templateUrl: './cart-order.component.html',
@@ -18,6 +18,7 @@ export class CartOrderComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private orderService: OrdersService,
+    private toast:ToastrService,
 
   ) { }
 
@@ -47,7 +48,14 @@ export class CartOrderComponent implements OnInit {
       (error) => {
         console.log('orden NEGADA', error);
       }
+      
     );
+    this.toast.success('Se ha entregado el pedido exitosamente', '', {
+        toastClass: 'success-toastSend',
+        closeButton: true,
+        enableHtml: true,
+        tapToDismiss: true,
+      });
   }
   // Método para filtrar productos de acuerdo a estatus
   getFilteredOrders(): OrderI[] {

@@ -1,7 +1,7 @@
 <section>
     <ng-container *ngFor=" let order of orderFiltered()">
 
-        <div class="order">
+        <div class="order" [ngClass]="{isActive:order.concluded === false && (order.status === 'delivered')}">
 
 
             <div class="details">

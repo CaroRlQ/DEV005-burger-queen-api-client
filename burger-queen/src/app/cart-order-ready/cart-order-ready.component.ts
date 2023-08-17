@@ -2,6 +2,7 @@ import { CSP_NONCE, Component, Input } from '@angular/core';
 import { OrdersService } from '../services/orders.service';
 import { OrderI } from '../interfaces/order.interface';
 import { findIndex } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-cart-order-ready',
   templateUrl: './cart-order-ready.component.html',
@@ -10,7 +11,7 @@ import { findIndex } from 'rxjs';
 export class CartOrderReadyComponent {
   @Input() concluded :boolean = false; 
 
-  constructor(private orderService: OrdersService) { }
+  constructor(private orderService: OrdersService , private toast: ToastrService) { }
 
   orderDelivered: OrderI[] = []
 
@@ -35,7 +36,14 @@ export class CartOrderReadyComponent {
       const findIndex = this.orderDelivered.findIndex(index => index === order)
       this.orderDelivered.splice(findIndex, 1)
       console.log('otro', result)
-    })
+    });
+    this.toast.success('Se ha entregado el pedido exitosamente', '', {
+      toastClass: 'success-toastSend',
+      closeButton: true,
+      enableHtml: true,
+      tapToDismiss: true,
+    });
+
   }
   orderFiltered(): OrderI[]{
     console.log('concluded',this.concluded )

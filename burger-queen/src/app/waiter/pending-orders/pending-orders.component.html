@@ -1,7 +1,7 @@
 <section>
   <div class="button">
-    <button (click)="showDeliveredOrders()">Pedidos enviados</button>
-    <button (click)="showFinishedOrders()">Pedidos Terminados</button>
+    <button class="buttonSelect" [ngClass]="{'active':isDelivered}" (click)="showDeliveredOrders()">Pedidos enviados</button>
+    <button class="buttonSelect" [ngClass]="{'active':isFinished}" (click)="showFinishedOrders()">Pedidos Terminados</button>
   </div>
 
   <div class="containOrder">
