@@ -1,4 +1,47 @@
-<p>manager-staff works!</p>
-<button>Agregar Usuario</button>
-<app-modal-add-user></app-modal-add-user>
+<section>
+    <article>
+        <h1>Administrador</h1>
+        <table>
+            <tr>
+                <th>Correo</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+            <tr *ngFor="let user of userAdmin">
+                <td>{{user.email}}</td>
+            </tr>
+        </table>
 
+    </article>
+    <article>
+        <h1>Cocinero</h1>
+        <table>
+            <tr>
+                <th>Correo</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+            <tr *ngFor="let user of userCheff">
+                <td>{{user.email}}</td>
+            </tr>
+        </table>
+    </article>
+    <article>
+        <h1>Mesero</h1>
+        <table>
+            <tr>
+                <th>Correo</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+            <tr *ngFor="let user of userWaiter">
+                <td>{{user.email}}</td>
+            </tr>
+        </table>
+    </article>
+
+    <button>Agregar Usuario</button>
+    <!-- <app-modal-add-user></app-modal-add-user> -->
+
+
+</section>

@@ -9,9 +9,16 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./manager.component.css']
 })
 export class ManagerComponent {
- constructor( private user: AuthService) { }
+ constructor( private authService: AuthService) { }
+
+
+
+ nameUser: string | undefined = this.authService.getCurrentUser()?.user.email
+ logout(){
+   this.authService.logout();
+ }
  rutaImgLogo: string = 'https://i.ibb.co/vZtH272/imgLogo.png'
  rutaImgFondo: string = 'https://i.ibb.co/VpkgVyf/img01.jpg'
- userEmail : string | undefined = this.user.getCurrentUser()?.user.email;
+ userEmail : string | undefined = this.authService.getCurrentUser()?.user.email;
 
 }

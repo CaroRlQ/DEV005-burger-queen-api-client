@@ -1,6 +1,6 @@
 <body>
     <nav>
-        <img [src]="rutaImgLogo"class="rutaImgLogo">
+        <img [src]="rutaImgLogo" class="rutaImgLogo">
         <ul class="optionList">
             <li> <a class="option" routerLink="/manager/staff" routerLinkActive="active">PERSONAL</a></li>
             <li> <a class="option" routerLink="/manager/menu" routerLinkActive="active">MENÚ</a></li>
@@ -8,11 +8,17 @@
         <img [src]="rutaImgFondo" class="rutaImgFondo">
     </nav>
     <main>
-        <h2>{{userEmail}}</h2>
-        <!-- <app-buttons></app-buttons> -->
+        <section class="headerMain">
+            <div class="userName">
+                <h1>¡Hola!</h1>
+                <h2> {{nameUser}}</h2>
+            </div>
+            <i id="logout" (click)="logout()" class="fa-solid fa-right-from-bracket"></i>
+
+        </section>
+
         <router-outlet></router-outlet>
-        
 
     </main>
-  
+
 </body>
