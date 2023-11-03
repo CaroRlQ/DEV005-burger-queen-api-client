@@ -1,0 +1,31 @@
+
+<div class="modal">
+    <form class="modalBody" [formGroup]="formAddUser" >
+        <h1>{{action}} Usuario</h1>
+      
+            <select name="select" class="selectCargo" formControlName="role">
+                <option value="">Cargo</option>
+                <option value="admin">Gerente</option>
+                <option value="cheff">Cheff</option>
+                <option value="waiter">Mesero</option>
+            </select>
+            <span *ngIf="formAddUser.controls.role.invalid && formAddUser.controls.role.touched"> Debe agregar un cargo</span>
+
+        <div class="divContainer">
+            <input type="email" formControlName="email" placeholder="Email">
+            <span [hidden]="email.valid ||email.pristine" *ngIf="email.errors?.['required']">El email es
+                obligatorio</span>
+            <span [hidden]="email.valid || email.pristine" *ngIf="email.errors?.['email']">El email debe ser válido,
+                ejemplo: user@xmail.com</span>
+        </div>
+        <div class="divContainer">
+            <input type="string" formControlName='password' placeholder="Contraseña">
+            <span [hidden]="password.valid || password.pristine">El nombre es obligatorio</span>
+        </div>
+        <div class="divContainer divButton">
+            <button [disabled]="formAddUser.invalid" class="buttonSave" (click)="process()">Guardar</button>
+            <button class="buttonClose" routerLink="/manager/staff">Cerrar</button>
+        </div>
+
+    </form>
+</div>

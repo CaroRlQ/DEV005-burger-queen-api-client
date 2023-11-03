@@ -100,6 +100,9 @@ hr{
     position: absolute;
     top:40px;
 }
+
+
+
 @media (max-width:1000px) {
     body {
         grid-template-columns: 20vw 1fr;
@@ -117,3 +120,4 @@ hr{
      
     }
 }
+

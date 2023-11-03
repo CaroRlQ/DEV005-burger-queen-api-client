@@ -3,16 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ManagerMenuComponent } from './manager-menu/manager-menu.component';
 import { ManagerStaffComponent } from './manager-staff/manager-staff.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ModalAddUserComponent } from './manager-staff/modal-add-user/modal-add-user.component';
+import { ModalAddUserComponent } from './modal-add-user/modal-add-user.component';
 import { ReactiveFormsModule} from '@angular/forms'
 import { ButtonsComponent } from '../buttons/buttons.component';
+import { ItemsComponent } from './items/items.component';
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'staff',
-    pathMatch: 'full'
-
-  },
+ 
   {
     path: 'staff',
     component: ManagerStaffComponent,
@@ -21,6 +17,20 @@ const routes: Routes = [
   {
     path: 'menu',
     component: ManagerMenuComponent
+  },
+  {
+    path: 'add',
+    component: ModalAddUserComponent
+  },
+  {
+    path: 'edit/:id',
+    component: ModalAddUserComponent
+  },
+  {
+    path: '',
+    redirectTo: 'staff',
+    pathMatch: 'full'
+
   }
 ]
 
@@ -29,6 +39,7 @@ const routes: Routes = [
     ManagerMenuComponent,
     ManagerStaffComponent,
     ModalAddUserComponent,
+    ItemsComponent,
     
   ],
   imports: [

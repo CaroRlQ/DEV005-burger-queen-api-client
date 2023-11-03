@@ -1,8 +1,7 @@
-section{
+.section{
     width: 70%;
     height: 80%;
     margin: auto;
- 
     display: grid;
     grid-template-columns: 1fr;
     gap: 10%;
@@ -13,7 +12,7 @@ section{
     font-family: 'Roboto Flex', sans-serif;
     font-size: 18px;
 }
-article{
+.article{
    color: rgb(228, 228, 228);
     
 }
@@ -22,7 +21,7 @@ h1{
     padding-bottom: 1%;
     
 }
-button{
+.button{
     height: 50px;
     border-radius: 15px;
     font-family: 'Roboto Flex', sans-serif;
@@ -34,3 +33,4 @@ table{
     outline: 2px solid red;
     width: 100%;
 }
+

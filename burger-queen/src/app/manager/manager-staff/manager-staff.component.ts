@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { UsersI } from 'src/app/interfaces/user.interface';
-import { UsersService } from 'src/app/services/users.service';
+import { UserItemsI } from 'src/app/interfaces/user.interface';
+import { UsersService } from 'src/app/services/user.service';
+import { ItemsComponent } from '../items/items.component';
+import { ModalAddUserComponent } from '../modal-add-user/modal-add-user.component';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-manager-staff',
@@ -9,24 +12,39 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ManagerStaffComponent {
 
-  userAdmin: UsersI[]=[];
-  userCheff: UsersI[]=[];
-  userWaiter: UsersI[]=[];
+  userAdmin: UserItemsI[] = [];
+  userCheff: UserItemsI[] = [];
+  userWaiter: UserItemsI[] = [];
 
-  constructor(private userService:UsersService){
+  //Abrir modal
+  switchModal:boolean;
 
+  constructor(private userService: UsersService, private modalSs: ModalService) {
 
+   this.switchModal=false
   }
-  ngOnInit():void{
-    this.userService.getUser().subscribe(result=>{
-      console.log('usuarios', result);
-     this.userAdmin= result.filter(user=>{return user.role === 'admin'});
-     this.userCheff= result.filter(user=>{return user.role === 'cheff'});
-     this.userWaiter= result.filter(user=>{return user.role === 'waiter'})
-    })
+  ngOnInit(): void {
+    this.modalSs.$modal.subscribe((valor)=>this.switchModal = valor)
+    // this.userService.getUser().subscribe(result => {
+    //   console.log('usuarios', result);
+    //   this.userAdmin = result.filter(user => { return user.role === 'admin' });
+    //   this.userCheff = result.filter(user => { return user.role === 'cheff' });
+    //   this.userWaiter = result.filter(user => { return user.role === 'waiter' })
+    // })
+  }
+
+  addItem(){
+    console.log('holas')
 
     
+  }
+
+  // Función abrir Modal
+  openModal(){
+  this.switchModal=true
 
   }
+
+
 
 }

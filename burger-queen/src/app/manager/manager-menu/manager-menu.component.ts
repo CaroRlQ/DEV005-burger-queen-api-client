@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalAddUserComponent } from '../modal-add-user/modal-add-user.component';
 
 @Component({
   selector: 'app-manager-menu',

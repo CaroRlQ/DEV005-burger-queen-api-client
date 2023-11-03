@@ -17,7 +17,7 @@ export class ProductsService {
   tokenAccess: string | undefined;
 
   constructor(private http: HttpClient, userDataFromApi: AuthService) {
-   // Obtención de token de acceso
+    // Obtención de token de acceso
     this.tokenAccess = userDataFromApi.getCurrentUser()?.accessToken;
 
   }
@@ -32,12 +32,12 @@ export class ProductsService {
   }
   // Método para filtrar productos por tipo 
   getProductsByType(types: string, data: ProductsI[]) {
-      if (types !== ''){
-        return data.filter((item: ProductsI) => item.type === types)
-      } else {
-        return data;
-      }
-     }
+    if (types !== '') {
+      return data.filter((item: ProductsI) => item.type === types)
+    } else {
+      return data;
+    }
+  }
 
 
 }

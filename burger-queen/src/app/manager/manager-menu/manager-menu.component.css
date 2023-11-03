@@ -1,0 +1,35 @@
+.section{
+    width: 70%;
+    height: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10%;
+    padding: 8%;
+    background-color: rgba(23, 22, 22, 0.772);
+    border-radius: 35px;
+    box-shadow: 0 0 20px 0 rgb(0, 0, 0);
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 18px;
+}
+.article{
+   color: rgb(228, 228, 228);
+    
+}
+h1{
+    border-bottom: 3px solid var(--botones);
+    padding-bottom: 1%;
+    
+}
+.button{
+    height: 50px;
+    border-radius: 15px;
+    font-family: 'Roboto Flex', sans-serif;
+    background-color:var(--botones) ;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+table{
+    outline: 2px solid red;
+    width: 100%;
+}
