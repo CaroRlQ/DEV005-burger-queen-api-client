@@ -13,9 +13,11 @@
         <app-items [dataItem]="'users'" [dataType]="'waiter'"></app-items>
     </article>
 
-    <button class="button" routerLink="/manager/add"  >Agregar Usuario</button> 
+    <button class="button" routerLink="/manager/add">Agregar Usuario</button>
     <!-- <div *ngIf="switchModal===true">
           <app-modal-add-user></app-modal-add-user>
     </div> -->
-
+    <!-- <div *ngIf="switchModal === true">
+        <app-modal-close [nameItem]="'users'"></app-modal-close>
+    </div> -->
 </section>

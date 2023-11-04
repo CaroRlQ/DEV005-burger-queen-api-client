@@ -7,6 +7,9 @@ import { ModalAddUserComponent } from './modal-add-user/modal-add-user.component
 import { ReactiveFormsModule} from '@angular/forms'
 import { ButtonsComponent } from '../buttons/buttons.component';
 import { ItemsComponent } from './items/items.component';
+import { ModalAddProductsComponent } from './modal-add-products/modal-add-products.component';
+import { ModalCloseComponent } from './modal-close/modal-close.component';
+
 const routes: Routes = [
  
   {
@@ -27,6 +30,14 @@ const routes: Routes = [
     component: ModalAddUserComponent
   },
   {
+    path: 'add-product',
+    component: ModalAddProductsComponent
+  },
+  {
+    path: 'edit-product/:id',
+    component: ModalAddProductsComponent
+  },
+  {
     path: '',
     redirectTo: 'staff',
     pathMatch: 'full'
@@ -40,6 +51,8 @@ const routes: Routes = [
     ManagerStaffComponent,
     ModalAddUserComponent,
     ItemsComponent,
+    ModalAddProductsComponent,
+    ModalCloseComponent,
     
   ],
   imports: [

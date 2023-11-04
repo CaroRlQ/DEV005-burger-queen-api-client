@@ -17,14 +17,14 @@ export class ManagerStaffComponent {
   userWaiter: UserItemsI[] = [];
 
   //Abrir modal
-  switchModal:boolean;
+  switchModal: boolean;
 
   constructor(private userService: UsersService, private modalSs: ModalService) {
 
-   this.switchModal=false
+    this.switchModal = false
   }
   ngOnInit(): void {
-    this.modalSs.$modal.subscribe((valor)=>this.switchModal = valor)
+    this.modalSs.$modal.subscribe((valor) => this.switchModal = valor)
     // this.userService.getUser().subscribe(result => {
     //   console.log('usuarios', result);
     //   this.userAdmin = result.filter(user => { return user.role === 'admin' });
@@ -33,15 +33,15 @@ export class ManagerStaffComponent {
     // })
   }
 
-  addItem(){
+  addItem() {
     console.log('holas')
 
-    
+
   }
 
   // Función abrir Modal
-  openModal(){
-  this.switchModal=true
+  openModal() {
+    this.switchModal = true
 
   }
 

@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { UserItemsI } from 'src/app/interfaces/user.interface';
 import { UsersService } from 'src/app/services/user.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { ProductsI } from 'src/app/interfaces/products.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-items',
@@ -13,44 +14,56 @@ import { ActivatedRoute } from '@angular/router';
 export class ItemsComponent {
   @Input() dataItem: string = '';
   @Input() dataType: string = '';
+
   userItem: UserItemsI[] = [];
   productsItem: ProductsI[] = [];
   propertyObject: string = '';
   showItems: any[] = [];
   quantityProduct: object = {};
- 
+  modalSwitch: boolean = false;
+  itemId: number = 0
+
   constructor(
     private userService: UsersService,
     private itemProductService: ProductsService,
-    private toRouter : ActivatedRoute
-    ) {
+    private toRouter: ActivatedRoute,
+    private router: Router,
+    private productService: ProductsService,
+    private modalSs: ModalService
+  ) {
 
- 
+    this.modalSs.$modal.subscribe((valor) => {
+      this.modalSwitch = valor;
+    })
+
+
 
   }
   ngOnInit(): void {
-    this.setPropertyToShow();
     this.getUserItem();
     this.getProductsItem();
-    this.getProductByType();
     this.setPropertyToShow();
   }
   // Función para traer usuarios
   getUserItem() {
     this.userService.getUser().subscribe(result => {
       this.userItem = result;
-      console.log('user', result)
       this.getUserByType();
-      this.setPropertyToShow() 
+      this.setPropertyToShow()
     })
   };
+  // Función para extraer usuarios por tipos
+  getUserByType(): UserItemsI[] {
+    return this.userService.getUsersByType(this.dataType, this.userItem);
+  }
+
+
   // Función para traer productos de menú
   getProductsItem() {
     this.itemProductService.getProductsFromAPI().subscribe(result => {
       this.productsItem = result;
       this.getProductByType();
-      this.setPropertyToShow() 
-
+      this.setPropertyToShow()
     })
   }
 
@@ -58,45 +71,54 @@ export class ItemsComponent {
     return this.itemProductService.getProductsByType(this.dataType, this.productsItem);
   }
 
-  getUserByType(): UserItemsI[] {
-    // console.log('types', this.userService.getUsersByType('waiter', this.userItem))
-    return this.userService.getUsersByType(this.dataType, this.userItem);
-  }
-
-
   // Función de variable de propiedad de objeto
 
   setPropertyToShow() {
     if (this.dataItem === 'users') {
       this.propertyObject = 'email';
       this.showItems = this.getUserByType();
-      // console.log('peeta', this.showItems)
     } else if (this.dataItem === 'products') {
       this.propertyObject = 'name';
       this.showItems = this.getProductByType();
-      // console.log('katniss', this.showItems)
     };
   };
+  // Función para eliminar usuario (boton 'eliminar')
+  openModalDelete(id: number) {
 
-  
+    this.modalSwitch = true;
+    this.modalSs.$id.emit(id)
+    this.modalSs.$dataItem.emit(this.dataItem);
+    this.itemId = id;
 
-  // funciones de botones
-  editItem(item:object) {
-    console.log('editando...',item)
-    
 
-  }
-  deleteElment(id:number) {
+    console.log('id: ', id)
+    console.log('dataItem :', this.dataItem)
 
-    this.userService.deleteUser(id).subscribe(()=>{
-
-     this.getUserItem()
-    })
-    
-    
 
   }
 
+  deleteItem() {
+   console.log('probando evento en item')
+    if (this.dataItem === "users") {
+      this.userService.deleteUser(this.itemId).subscribe(() => {
+        this.getUserItem()
+      })
+    } else {
+      this.productService.deleteProduct(this.itemId).subscribe(() => {
+        this.getProductsItem()
+        console.log('borrando producto...')
+      })
+    }
 
+  }
+
+  getEditRoute(id: number) {
+    if (this.dataItem === 'users') {
+      return this.router.navigate([`/manager/edit/${id}`])
+    } else if (this.dataItem === 'products') {
+      return this.router.navigate([`/manager/edit-product/${id}`])
+    }
+    return this.router.navigate(['/manager'])
+  }
 }
 

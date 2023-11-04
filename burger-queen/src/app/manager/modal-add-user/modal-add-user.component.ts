@@ -83,29 +83,27 @@ export class ModalAddUserComponent {
 
     if (this.idUser !== 0) {
       //Si esta editando
-      console.log('probando edicion')
       userValue.id = this.idUser;
       this.userService.updateUser(this.idUser, userValue).subscribe(() => {
 
-        this.toast.success(`El usuario ${userValue.email} se ha editado exitosamente`, '', {
+        this.toast.success(`${userValue.email} se ha editado exitosamente`, '', {
           toastClass: 'success-toastSend',
-          closeButton: true,
-          enableHtml: true,
-          tapToDismiss: true,
         });
       })
+      this.router.navigate(['/manager/staff'])
 
     } else {
       // Si está añadiendo nueva información
       userValue.id = new Date().getTime();
       this.userService.addUser(userValue).subscribe(() => {
-        this.toast.success(`El ${userValue.email} se ha agregado exitosamente`, '', {
+        this.toast.success(`${userValue.email} se ha agregado exitosamente`, '', {
           toastClass: 'success-toastSend',
           closeButton: true,
           enableHtml: true,
           tapToDismiss: true,
         });
       })
+      this.router.navigate(['/manager/staff'])
     }
   }
 

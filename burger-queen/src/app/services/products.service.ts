@@ -15,15 +15,22 @@ import { ProductsToOrderI } from '../interfaces/order.interface';
 export class ProductsService {
 
   tokenAccess: string | undefined;
+  private httpOptions: { headers: HttpHeaders }
+  private apiUrl: string = 'http://localhost:8080/products/'
+  constructor(private http: HttpClient, userDataFromApi: AuthService,
 
-  constructor(private http: HttpClient, userDataFromApi: AuthService) {
+  ) {
     // Obtención de token de acceso
     this.tokenAccess = userDataFromApi.getCurrentUser()?.accessToken;
+    this.httpOptions = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.tokenAccess}`)
+    }
+
 
   }
 
   // Declaración de la variable para guardar endpoints de la api(products) 
-  private apiUrl: string = 'http://localhost:8080/products';
+
 
   // Método para realizar la peticón Http ( data de productos)
   getProductsFromAPI(): Observable<ProductsI[]> {
@@ -38,6 +45,23 @@ export class ProductsService {
       return data;
     }
   }
+
+  getProductById(id: number): Observable<ProductsI> {
+    return this.http.get<ProductsI>(this.apiUrl + id, this.httpOptions)
+  }
+
+  addProduct(data: ProductsI) {
+    return this.http.post<ProductsI>(this.apiUrl, data, this.httpOptions)
+  }
+  updateProduct(id: number, data: ProductsI): Observable<void> {
+    return this.http.patch<void>(this.apiUrl + id, data, this.httpOptions)
+  }
+
+  deleteProduct(id:number){
+    return this.http.delete<ProductsI>(this.apiUrl+id, this.httpOptions)
+  }
+
+
 
 
 }
