@@ -1,5 +1,6 @@
 * {
   font-family: 'Roboto Flex', sans-serif;
+  color: rgb(206, 206, 206);
 }
 
 form {
@@ -10,6 +11,7 @@ form {
   grid-template-columns: 1fr .8fr;
   align-items: center;
   justify-content:center ;
+
 }
 
 .divContainer {
@@ -19,15 +21,18 @@ form {
   margin: 1%;
   margin-top: 2%;
   padding: 4%;
+ 
 
 
 }
 
 .takeOrder {
-  box-shadow: 0px 0px 25px 0px rgb(144, 144, 143);
+  box-shadow: 0px 0px 30px 0px rgb(16, 16, 16);
   border-radius: 40px 0px 0px 40px;
   padding: 7%;
   position: relative;
+ 
+   background-color: rgb(22, 22, 22);
 }
 
 .message {
@@ -56,6 +61,7 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2%;
+ 
 }
 
 .inputContain section {
@@ -71,6 +77,7 @@ form {
   border: none;
   font-size: 1em;
   border-bottom: 2px solid var(--botones);
+  background-color: transparent;
 
   &:focus {
     outline: none;
@@ -95,10 +102,11 @@ form {
   padding: 4%;
   font-size: 1.2em;
   font-weight: 800;
-  border: 2px solid var(--botones);
+  border: 3px solid var(--botones);
   border-bottom: none;
   border-radius: 15px 15px 0px 0px;
-  background-color: rgb(255, 255, 255);
+  background: transparent;
+  color: rgb(255, 255, 255);
 
 }
 
@@ -108,6 +116,7 @@ form {
   padding: 8px;
   text-align: center;
   border-bottom: 1px solid rgba(83, 83, 83, 0.936);
+  
 
 }
 
@@ -116,16 +125,19 @@ form {
   padding: 10px;
   border-radius: 0px 0px 10px 10px;
   border: 3px solid var(--botones);
-  background-color: #ffc95e17;
+  background-color: #1c1c1c56;
+  box-shadow: 0 0 15px 0 rgb(108, 108, 108);
 
 
 }
 
 .tableOrder th {
-  background-color: #ffc95e5d;
+  background-color: #ffc95e;
   border-bottom: 1px solid var(--botones);
   border-left: 1px solid white;
   border-right: 1px solid white;
+  color: rgb(0, 0, 0);
+
 }
 
 table {
@@ -141,10 +153,10 @@ table {
 .modal-content {
   height: 100%;
   border-radius: 0px 40px 40px 0px;
-  box-shadow: 0px 0px 20px 0px rgb(207, 206, 204);
+  box-shadow: 0px 0px 20px 0px rgb(85, 85, 85);
   background-color: rgb(19, 13, 7);
   padding: 8% 8% 0 8%;
-  color: rgb(255, 255, 255);
+  color: rgb(247, 247, 247); 
 }
 
 .modal-content h1 {
@@ -199,6 +211,7 @@ table {
   background-color: var(--botones);
   border-radius: 10px;
   box-shadow: 0px 0px 15px 0px rgb(118, 117, 117);
+  color: rgb(52, 52, 52);
 }
 
 .buttonCancel {

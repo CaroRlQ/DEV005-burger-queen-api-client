@@ -1,4 +1,18 @@
-<p>manager-staff works!</p>
-<button>Agregar Usuario</button>
-<app-modal-add-user></app-modal-add-user>
+<section class="section">
+    <article class="article">
+        <h1>Administrador</h1>
+        <app-items [dataItem]="'users'" [dataType]="'admin'"></app-items>
+    </article>
+    <article class="article">
+        <h1>Cocinero</h1>
+        <app-items [dataItem]="'users'" [dataType]="'cheff'"></app-items>
 
+    </article>
+    <article class="article">
+        <h1>Mesero</h1>
+        <app-items [dataItem]="'users'" [dataType]="'waiter'"></app-items>
+    </article>
+
+    <button class="button" routerLink="/manager/add">Agregar Usuario</button>
+  
+</section>

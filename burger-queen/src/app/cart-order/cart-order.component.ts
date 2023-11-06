@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { OrderI } from '../interfaces/order.interface';
 import { AuthService } from '../services/auth.service';
 import { OrdersService } from '../services/orders.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-cart-order',
   templateUrl: './cart-order.component.html',
@@ -18,6 +18,7 @@ export class CartOrderComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private orderService: OrdersService,
+    private toast:ToastrService,
 
   ) { }
 
@@ -28,18 +29,18 @@ export class CartOrderComponent implements OnInit {
 
   getOrders(): void {
     this.orderService.getOrdersByStatus(this.statusFilter).subscribe((result: OrderI[]) => {
-      this.orders = result.map(o => ( 
+      this.orders = result.map(o => (
         {
-        ...o,
-        totalTime: this.orderService.calculateDuration(o.dataEntry, o.dateProcessed)
-      }
+          ...o,
+          totalTime: this.orderService.calculateDuration(o.dataEntry, o.dateProcessed)
+        }
       ));
     });
   }
- // Método para cambiar status de orden e ingresar valor a dataProcessed
-  sendOrder(id: number, order:OrderI) {
-    order.dateProcessed = new Date ();
-    this.orderService.patchOrder(id, 'delivered', order.dateProcessed ).subscribe(
+  // Método para cambiar status de orden e ingresar valor a dataProcessed
+  sendOrder(id: number, order: OrderI) {
+    order.dateProcessed = new Date();
+    this.orderService.patchOrder(id, 'delivered', order.dateProcessed).subscribe(
       (order) => {
         const index = this.orders.findIndex((order) => order.id === id);
         this.orders.splice(index, 1)
@@ -47,9 +48,16 @@ export class CartOrderComponent implements OnInit {
       (error) => {
         console.log('orden NEGADA', error);
       }
+      
     );
+    this.toast.success('Se ha entregado el pedido exitosamente', '', {
+        toastClass: 'success-toastSend',
+        closeButton: true,
+        enableHtml: true,
+        tapToDismiss: true,
+      });
   }
- // Método para filtrar productos de acuerdo a estatus
+  // Método para filtrar productos de acuerdo a estatus
   getFilteredOrders(): OrderI[] {
     if (this.statusFilter) {
       return this.orders.filter(order => order.status === this.statusFilter)
@@ -57,7 +65,7 @@ export class CartOrderComponent implements OnInit {
       return this.orders;
     }
   }
-  
+
 }
 
- 
+

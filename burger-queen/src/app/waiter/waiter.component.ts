@@ -22,11 +22,6 @@ export class WaiterComponent implements OnInit {
   }
 
 
-
-
-
-
-
   rutaImgLogo: string = 'https://i.ibb.co/vZtH272/imgLogo.png'
   rutaImgFondo: string = 'https://i.ibb.co/VpkgVyf/img01.jpg'
 }

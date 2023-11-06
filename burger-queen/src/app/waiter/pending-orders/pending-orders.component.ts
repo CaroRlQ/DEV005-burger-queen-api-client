@@ -8,7 +8,27 @@ import { CartOrderComponent } from 'src/app/cart-order/cart-order.component';
 })
 export class PendingOrdersComponent {
 
-  probandoNotificacion(event :string | number){
-    console.log('holis', event)
+  isDelivered: boolean = true;
+  isFinished:boolean = false;
+
+  deliveredOrder:boolean = true;
+  finishedOrder:boolean = false;
+
+  showDeliveredOrders(){
+   this.deliveredOrder = true;
+   this.finishedOrder = false;
+   this.isDelivered = true;
+   this.isFinished = false;
+
   }
+
+  showFinishedOrders(){
+    this.finishedOrder = true;
+    this.deliveredOrder = false;
+    this.isDelivered = false;
+    this.isFinished = true;
+
+  }
+
+
 }

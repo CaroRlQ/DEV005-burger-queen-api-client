@@ -41,12 +41,14 @@ export class OrdersComponent implements OnInit {
     this.order = {
       id: 0,
       userId: 0,
+      numberTable:0,
       client: '',
       products: [],
       status: '',
       dataEntry: new Date(''),
       dateProcessed: new Date(''),
       priceTotal: 0,
+      concluded:false
     };
 
   }
@@ -147,12 +149,14 @@ export class OrdersComponent implements OnInit {
       const order = {
         id: 0,
         userId: userId,
+        numberTable:this.numberTable.value,
         client: this.nameClient.value,
         products: this.cart,
         status: 'pending',
         dataEntry: new Date(''),
         dateProcessed: new Date(''),
         priceTotal: sumTotal,
+        concluded: false
       }
       // Inyección de orden a variable
       this.order = order;
@@ -176,6 +180,7 @@ export class OrdersComponent implements OnInit {
       id: 0,
       userId: 0,
       client: '',
+      numberTable: 0,
       products: [],
       status: '',
       dataEntry: new Date(''),

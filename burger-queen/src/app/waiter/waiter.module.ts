@@ -8,6 +8,7 @@ import { AuthService } from '../services/auth.service';
 import { ButtonsComponent } from '../buttons/buttons.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheffModule } from '../cheff/cheff.module';
+import { CartOrderReadyComponent } from '../cart-order-ready/cart-order-ready.component';
 
 const routes : Routes = [
   {
@@ -32,7 +33,7 @@ const routes : Routes = [
     OrdersComponent,
     PendingOrdersComponent,
     ButtonsComponent,
-    
+    CartOrderReadyComponent,
   
  
  
@@ -50,6 +51,6 @@ const routes : Routes = [
  
   ],
   
-  exports: [RouterModule]
+  exports: [RouterModule, CartOrderReadyComponent]
 })
 export class WaiterModule { }

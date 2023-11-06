@@ -10,6 +10,7 @@ export interface ProductsToOrderI{
 export interface OrderI{
   id:number;
   userId: number;
+  numberTable:number;
   client: string;//product.name
   products:ProductsToOrderI[]; //cart
   status: string; 
@@ -17,4 +18,5 @@ export interface OrderI{
   dateProcessed:Date;
   priceTotal:number;
   totalTime?:string;
+  concluded?:boolean;
 }

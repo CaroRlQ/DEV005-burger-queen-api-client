@@ -17,7 +17,7 @@ export class AuthService {
       tap((data: UserResponseI) => {
         // Conversión de data a objeto string
         const dataToLocalS: string = JSON.stringify(data)
-        console.log('datas', dataToLocalS)
+        // console.log('datas', dataToLocalS)
         // Almacenamiento de dataToLocalS a localStorage
         localStorage.setItem('dataUser', dataToLocalS)
       }))
@@ -26,12 +26,12 @@ export class AuthService {
   // Método para obtener data de localStorage
   getCurrentUser(): UserResponseI | null {
     const dataLocalS = localStorage.getItem('dataUser');
-    console.log('dataLocalS', dataLocalS);
+    // console.log('dataLocalS', dataLocalS);
     if (dataLocalS === null) {
       return null
     }
     const dataUserObj = JSON.parse(dataLocalS);
-    console.log('obj', dataUserObj);
+    // console.log('obj', dataUserObj);
     return dataUserObj;
   }
 
