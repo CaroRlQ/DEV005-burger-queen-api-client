@@ -21,7 +21,8 @@ export class ItemsComponent {
   showItems: any[] = [];
   quantityProduct: object = {};
   modalSwitch: boolean = false;
-  itemId: number = 0
+  itemId: number = 0;
+  dataItemToModal: string = ''
 
   constructor(
     private userService: UsersService,
@@ -35,8 +36,6 @@ export class ItemsComponent {
     this.modalSs.$modal.subscribe((valor) => {
       this.modalSwitch = valor;
     })
-
-
 
   }
   ngOnInit(): void {
@@ -83,22 +82,21 @@ export class ItemsComponent {
     };
   };
   // Función para eliminar usuario (boton 'eliminar')
-  openModalDelete(id: number) {
-
+  openModalDelete(itemData: any) {
     this.modalSwitch = true;
-    this.modalSs.$id.emit(id)
-    this.modalSs.$dataItem.emit(this.dataItem);
-    this.itemId = id;
-
-
-    console.log('id: ', id)
-    console.log('dataItem :', this.dataItem)
-
-
+ 
+    // this.modalSs.$id.emit(item)
+    // this.modalSs.$dataItem.emit(this.dataItem);
+    this.itemId = itemData.id;
+    if (this.dataItem === "users") {
+      this.dataItemToModal = itemData.email;
+    } else if (this.dataItem === "products") {
+      this.dataItemToModal = itemData.name;
+    }
   }
 
   deleteItem() {
-   console.log('probando evento en item')
+    console.log('probando evento en item')
     if (this.dataItem === "users") {
       this.userService.deleteUser(this.itemId).subscribe(() => {
         this.getUserItem()
@@ -112,11 +110,11 @@ export class ItemsComponent {
 
   }
 
-  getEditRoute(id: number) {
+  getEditRoute(itemData: ProductsI | UserItemsI) {
     if (this.dataItem === 'users') {
-      return this.router.navigate([`/manager/edit/${id}`])
+      return this.router.navigate([`/manager/edit/${itemData.id}`])
     } else if (this.dataItem === 'products') {
-      return this.router.navigate([`/manager/edit-product/${id}`])
+      return this.router.navigate([`/manager/edit-product/${itemData.id}`])
     }
     return this.router.navigate(['/manager'])
   }

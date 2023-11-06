@@ -1,16 +1,17 @@
-<table>
+<table class="table-items">
     <tr>
         <th>Item</th>
-        <th>Editar</th>
-        <th>Borrar</th>
+        <th> </th>
+        <th> </th>
     </tr>
     <tr *ngFor="let item of showItems">
-        <td>{{item[propertyObject]}}</td>
-        <td><button (click)="getEditRoute(item.id)">Editar</button></td>
-        <td><button (click)="openModalDelete(item.id)">Borrar</button></td>
+        <td class="items-data">{{item[propertyObject]}}</td>
+        <td class="item-button" ><button class="button-table" (click)="getEditRoute(item)">Editar</button></td>
+        <td class="item-button"><button class="button-table" (click)="openModalDelete(item)">Borrar</button></td>
     </tr>
 
 </table>
 <div *ngIf="modalSwitch === true">
-    <app-modal-close (eventDelete) = "deleteItem()" ></app-modal-close>
+    <app-modal-close (eventDelete) = "deleteItem()" [dataFromItem] = 'dataItemToModal' ></app-modal-close>
 </div>
+ 

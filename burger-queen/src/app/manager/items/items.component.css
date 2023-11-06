@@ -1,0 +1,42 @@
+.table-items {
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: start;
+    font-family: 'Roboto Flex', sans-serif;
+
+}
+.table-items td{
+    padding: 2.5px;
+    border-bottom: 1px solid rgb(65, 63, 63);
+    padding: 5px;
+}
+.items-data {
+    text-align: start;
+
+}
+.item-button{
+ 
+    width: 80px;
+    text-align: center;
+ 
+}
+
+.button-table {
+    width: 100%;
+     border-radius: 7px;
+    padding: 4px;
+    font-weight: 600;
+    background-color: transparent;
+    border: 1.5px solid #ffc95e2c;
+    color: rgb(179, 179, 179);
+    box-shadow: 0 0 15px 1px #ffc95e2c;
+    margin: auto;
+cursor: pointer;
+}
+
+.button-table:hover {
+    background-color: #ffc95e;
+    color: rgb(46, 44, 44);
+    transition: .5s;
+}

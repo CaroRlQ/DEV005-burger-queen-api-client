@@ -1,9 +1,13 @@
-<section>
-    <div>
-        <h1>Estas seguro que deseas eliminar {{nameItem}}</h1>
+<section class="modal-delete">
+    <div class="modal-container">
+        <section class="question-modal">
+             <h1>Estas seguro que deseas eliminar el item:</h1>
+        <h2>  {{dataFromItem}} </h2>
+        </section>
+       
         <div>
-            <button (click)="deleteItem()">Aceptar</button>
-            <button (click)="closeModal()">Cancelar</button>
+            <button class="modal-button accept" (click)="deleteItem()">Aceptar</button>
+            <button class="modal-button " (click)="closeModal()">Cancelar</button>
         </div>
     </div>
 </section>

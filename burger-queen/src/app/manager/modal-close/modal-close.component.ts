@@ -11,9 +11,9 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./modal-close.component.css']
 })
 export class ModalCloseComponent {
-
+  @Input() dataFromItem: string= '';
   @Output() eventDelete:  EventEmitter<void> = new EventEmitter<void>();
-
+  
   modalSwitch: boolean = false;
   nameItem: string = '';
 
