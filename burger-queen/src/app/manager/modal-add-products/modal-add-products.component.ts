@@ -13,7 +13,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ModalAddProductsComponent {
 
   idProduct: number = 0
-  action: string = '';
+  action: string = 'Agregar ';
 
   constructor(
     private productService: ProductsService,

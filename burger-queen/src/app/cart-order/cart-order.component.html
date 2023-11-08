@@ -1,4 +1,4 @@
-<body>
+<body class="container-pending">
   <div class="containerOrders" *ngFor="let order of getFilteredOrders().reverse()">
     <ul>
 
@@ -25,7 +25,7 @@
     </div>
 
     <button class="orderPending" *ngIf="order.status !== 'delivered'" class="orderPending"
-      (click)="sendOrder(order.id, order)">PEDIDO LISTO</button>
+      (click)="sendOrder(order.id, order)">Pedido listo</button>
 
   </div>
 </body>

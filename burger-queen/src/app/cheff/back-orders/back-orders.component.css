@@ -1,4 +1,11 @@
-.containerOrders{
+.container-pending{
+    /* width: 100vw;
+    height: 100vh;
+    border: 2px solid red; */
+  
+    
+}
+/* .containerOrders{
     background-color: #F0F0F0;
     width: 60%;
     height: 300px;
@@ -8,7 +15,6 @@
     background-repeat: repeat;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
-   
 }
 .orderPending{
     display: flex;
@@ -52,7 +58,7 @@
     width: 70%;
     margin-left: 50px;
     margin-top: 25px;
-}
+ }
 
 table{
     
@@ -71,11 +77,4 @@ table{
     
     
 }
-
-
-/*.one{
-    background-color: blue;
-    width: 50%;
-    height: 90px;
-    margin-top:auto;
-}*/
+  */
