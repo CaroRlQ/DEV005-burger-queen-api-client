@@ -25,26 +25,14 @@ export class ManagerStaffComponent {
   }
   ngOnInit(): void {
     this.modalSs.$modal.subscribe((valor) => this.switchModal = valor)
-    // this.userService.getUser().subscribe(result => {
-    //   console.log('usuarios', result);
-    //   this.userAdmin = result.filter(user => { return user.role === 'admin' });
-    //   this.userCheff = result.filter(user => { return user.role === 'cheff' });
-    //   this.userWaiter = result.filter(user => { return user.role === 'waiter' })
-    // })
-  }
-
-  addItem() {
-    console.log('holas')
-
 
   }
+
 
   // Función abrir Modal
   openModal() {
     this.switchModal = true
-
   }
-
 
 
 }

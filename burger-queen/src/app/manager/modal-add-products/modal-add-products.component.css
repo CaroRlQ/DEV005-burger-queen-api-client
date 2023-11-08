@@ -11,7 +11,7 @@
     margin: auto;
     width: 70%;
     max-width: 500px;
-    max-height: 80%;
+    max-height:100%;
     display: grid;
     gap: 30px;
     grid-auto-columns: 100%;
@@ -24,6 +24,7 @@
     border-radius: 35px;
     box-shadow: 0 0 20px 0 rgb(0, 0, 0);
     color: rgb(214, 214, 214);
+  
 }
 
 .selectCargo {
@@ -61,11 +62,16 @@ select.selectCargo option:checked {
     grid-auto-columns: 100%;
     gap: 1em;
 }
-
+.modalBody span{
+   font-weight: 600;
+   font-size: 1.2em;
+   color: rgb(204, 154, 154);
+}
 .divContainer span {
-    color: rgb(171, 5, 5);
     font-weight: 600;
-    font-size: .8em;
+    font-size: 1.2em;
+    font-style: oblique;
+    color: rgb(204, 154, 154);
 }
 
 .divButton {

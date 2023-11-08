@@ -20,7 +20,7 @@
         </div>
         <div class="divContainer">
             <input type="string" formControlName='password' placeholder="Contraseña">
-            <span [hidden]="password.valid || password.pristine">El nombre es obligatorio</span>
+            <span [hidden]="password.valid || password.pristine">La contraseña es obligatoria</span>
         </div>
         <div class="divContainer divButton">
             <button [disabled]="formAddUser.invalid" class="buttonSave" (click)="process()">Guardar</button>
