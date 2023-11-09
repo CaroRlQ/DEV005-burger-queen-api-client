@@ -1,5 +1,5 @@
 <section>
-    <ng-container *ngFor=" let order of orderFiltered()">
+    <ng-container *ngFor=" let order of orderFiltered().reverse()">
 
         <div class="order" [ngClass]="{isActive:order.concluded === false && (order.status === 'delivered')}">
 

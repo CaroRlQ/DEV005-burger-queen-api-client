@@ -99,9 +99,9 @@ table {
     font-size: 1.2em;
 }
 
-@media (min-width:900px) {
+@media (min-width:850px) {
 
-    body {
+    .container-pending {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
