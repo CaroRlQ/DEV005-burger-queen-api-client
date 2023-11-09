@@ -2,9 +2,9 @@
 
 ## Índice
 * [1. Resumen del proyecto](#1-resumen-del-proyecto)
-* [2. Consideraciones](#2-consideraciones)
-* [3. Criterios de aceptación del proyecto](#3-criterios-de-aceptación-del-proyecto)
-* [4. Vistas de interfaz de proyecto](#4-Vistas de interfaz de proyecto)
+* [2. Criterios de aceptación del proyecto](#2-criterios-de-aceptación-del-proyecto)
+* [3. Vistas de interfaz de proyecto](#3-vistas-de-interfaz-de-proyecto)
+ 
 ***
 
 ## 1. Resumen del proyecto
@@ -38,7 +38,7 @@ agregar y la interfaz debe ir mostrando el _resumen del pedido_ con el
 costo total.
 
 
-## 3. Criterios de aceptación del proyecto
+## 2. Criterios de aceptación del proyecto
 
 #### [Historia de usuario 1] Mesero/a debe poder ingresar al sistema, si el admin ya le ha asignado credenciales
 
@@ -109,7 +109,7 @@ la plataforma para mantener actualizado la informacion de mis trabajadorxs.
 * Eliminar trabajadoxs.
 * Actualizar datos de trabajadorxs.
 
-## 4. Vistas de interfaz de proyecto
+## 3. Vistas de interfaz de proyecto
 ![Vista login - tablet](/image/login.jpg)
 ![Vista mesero - tablet](/image/mesero.jpg)
 ![Vista cheff - tablet](/image/cheff.jpg)
