@@ -145,6 +145,13 @@ div input {
     font-size: 1.5em;
     color: rgb(48, 48, 48);
     border-radius: 15px;
+    cursor: pointer;
+    border: none;
+    &:hover{
+        box-shadow: 0 0 20px 1px  #f1bf42;
+        transition: .5s;
+         
+    }
 
 }
 
