@@ -112,4 +112,3 @@ la plataforma para mantener actualizado la informacion de mis trabajadorxs.
 * Eliminar trabajadoxs.
 * Actualizar datos de trabajadorxs.
 
-
