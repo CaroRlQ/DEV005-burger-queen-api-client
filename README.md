@@ -1,13 +1,10 @@
 # Burger Queen (API Client)
 
 ## Índice
-
-
 * [1. Resumen del proyecto](#1-resumen-del-proyecto)
 * [2. Consideraciones](#2-consideraciones)
 * [3. Criterios de aceptación del proyecto](#3-criterios-de-aceptación-del-proyecto)
-
-
+* [4. Vistas de interfaz de proyecto](#4-Vistas de interfaz de proyecto)
 ***
 
 ## 1. Resumen del proyecto
@@ -112,3 +109,8 @@ la plataforma para mantener actualizado la informacion de mis trabajadorxs.
 * Eliminar trabajadoxs.
 * Actualizar datos de trabajadorxs.
 
+## 4. Vistas de interfaz de proyecto
+![Vista login - tablet](/image/login.jpg)
+![Vista mesero - tablet](/image/mesero.jpg)
+![Vista cheff - tablet](/image/cheff.jpg)
+![Vista administrador - tablet](/image/administrador.jpg)
